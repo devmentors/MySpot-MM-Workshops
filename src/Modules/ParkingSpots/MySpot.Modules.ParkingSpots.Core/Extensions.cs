@@ -6,6 +6,7 @@ using MySpot.Modules.ParkingSpots.Core.Services;
 using MySpot.Shared.Infrastructure;
 using MySpot.Shared.Infrastructure.Data.MySQL;
 using MySpot.Shared.Infrastructure.Data.Postgres;
+using MySpot.Shared.Infrastructure.Data.SQLServer;
 
 [assembly: InternalsVisibleTo("MySpot.Modules.ParkingSpots.Api")]
 
@@ -17,7 +18,8 @@ internal static class Extensions
     {
         return services
             .AddScoped<IParkingSpotsService, ParkingSpotsService>()
-            .AddMySql<ParkingSpotsDbContext>(configuration)
+            .AddMsSqlServer<ParkingSpotsDbContext>(configuration)
+            .AddInitializer<ParkingSpotsInitializer>()
             .AddUnitOfWork<ParkingSpotsUnitOfWork>();
     }
 }

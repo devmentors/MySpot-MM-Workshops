@@ -10,6 +10,7 @@ using MySpot.Shared.Abstractions.Dispatchers;
 using MySpot.Shared.Abstractions.Modules;
 using MySpot.Shared.Infrastructure;
 using MySpot.Shared.Infrastructure.Data.Postgres;
+using MySpot.Shared.Infrastructure.Data.SQLServer;
 
 namespace MySpot.Modules.Notifications.Api;
 
@@ -24,7 +25,7 @@ internal sealed class NotificationsModule : IModule
     
     public void Register(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddPostgres<NotificationsDbContext>(configuration)
+        services.AddMsSqlServer<NotificationsDbContext>(configuration)
             .AddInitializer<NotificationsInitializer>()
             .AddSingleton<IEmailApiClient, EmailApiClient>();
     }

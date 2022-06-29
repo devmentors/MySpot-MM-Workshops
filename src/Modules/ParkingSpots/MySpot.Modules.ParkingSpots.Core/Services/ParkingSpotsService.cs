@@ -21,7 +21,8 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
 
     public async Task AddAsync(ParkingSpot parkingSpot)
     {
-        await Task.CompletedTask;
+        await _parkingSpots.AddAsync(parkingSpot);
+        await _context.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(ParkingSpot parkingSpot)

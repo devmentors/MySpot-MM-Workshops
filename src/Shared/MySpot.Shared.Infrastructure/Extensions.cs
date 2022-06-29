@@ -21,6 +21,7 @@ using MySpot.Shared.Infrastructure.Contexts;
 using MySpot.Shared.Infrastructure.Contracts;
 using MySpot.Shared.Infrastructure.Data.MySQL;
 using MySpot.Shared.Infrastructure.Data.Postgres;
+using MySpot.Shared.Infrastructure.Data.SQLServer;
 using MySpot.Shared.Infrastructure.Dispatchers;
 using MySpot.Shared.Infrastructure.Events;
 using MySpot.Shared.Infrastructure.Exceptions;
@@ -99,7 +100,7 @@ public static class Extensions
         services.AddMessaging(configuration);
         services.AddSecurity(configuration);
         services.AddOutbox(configuration);
-        services.AddMySql(configuration);
+        services.AddMsSqlServer(configuration);
         services.AddSingleton<IClock, UtcClock>();
         services.AddSingleton<IDispatcher, InMemoryDispatcher>();
         services.AddHostedService<DbContextAppInitializer>();

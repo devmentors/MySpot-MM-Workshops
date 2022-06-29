@@ -8,6 +8,7 @@ using MySpot.Modules.Users.Core.Services;
 using MySpot.Shared.Infrastructure;
 using MySpot.Shared.Infrastructure.Data.MySQL;
 using MySpot.Shared.Infrastructure.Data.Postgres;
+using MySpot.Shared.Infrastructure.Data.SQLServer;
 
 [assembly: InternalsVisibleTo("MySpot.Modules.Users.Api")]
 [assembly: InternalsVisibleTo("MySpot.Modules.Users.Tests.Integration")]
@@ -28,7 +29,7 @@ internal static class Extensions
             .AddSingleton<ITokenStorage, HttpContextTokenStorage>()
             .AddScoped<IRoleRepository, RoleRepository>()
             .AddScoped<IUserRepository, UserRepository>()
-            .AddMySql<UsersDbContext>(configuration)
+            .AddMsSqlServer<UsersDbContext>(configuration)
             .AddUnitOfWork<UsersUnitOfWork>()
             .AddInitializer<UsersInitializer>();
     }

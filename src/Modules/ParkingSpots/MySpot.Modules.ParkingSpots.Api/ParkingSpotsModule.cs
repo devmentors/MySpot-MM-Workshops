@@ -33,6 +33,13 @@ internal sealed class ParkingSpotsModule : IModule
         endpoints.MapGet("/parking-spots", (IParkingSpotsService service) => service.GetAllAsync())
             .WithTags("Parking spots").WithName("Get parking spots");
 
+        endpoints.MapPost("/parking-spots", async (ParkingSpot parkingSpot, IParkingSpotsService service) =>
+        {
+            parkingSpot.Id = Guid.NewGuid();
+            await service.AddAsync(parkingSpot);
+            return Results.NoContent();
+        }).WithTags("Parking spots").WithName("Add parking spot");
+        
         endpoints.MapPut("/parking-spots/{id:guid}", async (Guid id, ParkingSpot parkingSpot, IParkingSpotsService service) =>
         {
             parkingSpot.Id = id;

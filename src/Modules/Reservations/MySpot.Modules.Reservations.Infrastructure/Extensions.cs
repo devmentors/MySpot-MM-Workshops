@@ -5,6 +5,7 @@ using MySpot.Modules.Reservations.Infrastructure.DAL;
 using MySpot.Modules.Reservations.Infrastructure.DAL.Repositories;
 using MySpot.Shared.Infrastructure.Data.MySQL;
 using MySpot.Shared.Infrastructure.Data.Postgres;
+using MySpot.Shared.Infrastructure.Data.SQLServer;
 
 namespace MySpot.Modules.Reservations.Infrastructure;
 
@@ -14,6 +15,6 @@ public static class Extensions
         => services
         .AddTransient<IWeeklyReservationsRepository, WeeklyReservationsRepository>()
         .AddTransient<IUserRepository, UserRepository>()
-        .AddMySql<ReservationsDbContext>(configuration)
+        .AddMsSqlServer<ReservationsDbContext>(configuration)
         .AddUnitOfWork<ReservationsUnitOfWork>();
 }
