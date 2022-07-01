@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\..\MySpot-Modular-Monolith\src\Shared\MySpot.Shared.Abstractions\MySpot.Shared.Abstractions.csproj" />
+      <ProjectReference Include="..\..\..\Shared\MySpot.Shared.Abstractions\MySpot.Shared.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

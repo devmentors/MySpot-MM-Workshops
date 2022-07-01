@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1E27
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{79D40D8F-0176-4EE8-B958-8F65A351B494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Shared.Abstractions", "src\Shared\MySpot.Shared.Abstractions\MySpot.Shared.Abstractions.csproj", "{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Shared.Infrastructure", "src\Shared\MySpot.Shared.Infrastructure\MySpot.Shared.Infrastructure.csproj", "{9351596D-B14A-46F3-8711-192E3B592CA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Modules.Users.Core", "src\Modules\Users\MySpot.Modules.Users.Core\MySpot.Modules.Users.Core.csproj", "{7A8AC51F-B000-4F46-9EE9-6EDBD6EBDCCA}"
@@ -65,7 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notificati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Modules.Notifications.Api", "src\Modules\Notifications\MySpot.Modules.Notifications.Api\MySpot.Modules.Notifications.Api.csproj", "{DE09E957-7D4C-482C-9456-4898E52B688B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Modules.Users.Shared", "src\Modules\Users\MySpot.Modules.Users.Shared\MySpot.Modules.Users.Shared.csproj", "{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Shared.Abstractions", "src\Shared\MySpot.Shared.Abstractions\MySpot.Shared.Abstractions.csproj", "{496AA257-AC0A-4F9B-ACFF-2A8B3A186791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,7 +75,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{79D40D8F-0176-4EE8-B958-8F65A351B494} = {1E27CE56-47D9-4B0C-83B3-71A80DD151A2}
-		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F} = {A1B3E671-BFB5-4E3C-852A-42245D15AAA4}
 		{9351596D-B14A-46F3-8711-192E3B592CA8} = {A1B3E671-BFB5-4E3C-852A-42245D15AAA4}
 		{7A8AC51F-B000-4F46-9EE9-6EDBD6EBDCCA} = {79D40D8F-0176-4EE8-B958-8F65A351B494}
 		{25E84BEB-67FF-4972-AF12-87576EACBB14} = {79D40D8F-0176-4EE8-B958-8F65A351B494}
@@ -103,13 +100,9 @@ Global
 		{57DC16D5-F957-439C-8051-681936912530} = {1910378F-A6BF-4526-AB97-76BC33140CB2}
 		{18DD3792-F715-4E9C-BBD6-4F7807543437} = {1E27CE56-47D9-4B0C-83B3-71A80DD151A2}
 		{DE09E957-7D4C-482C-9456-4898E52B688B} = {18DD3792-F715-4E9C-BBD6-4F7807543437}
-		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6} = {79D40D8F-0176-4EE8-B958-8F65A351B494}
+		{496AA257-AC0A-4F9B-ACFF-2A8B3A186791} = {A1B3E671-BFB5-4E3C-852A-42245D15AAA4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9351596D-B14A-46F3-8711-192E3B592CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9351596D-B14A-46F3-8711-192E3B592CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9351596D-B14A-46F3-8711-192E3B592CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -182,9 +175,9 @@ Global
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{496AA257-AC0A-4F9B-ACFF-2A8B3A186791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{496AA257-AC0A-4F9B-ACFF-2A8B3A186791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{496AA257-AC0A-4F9B-ACFF-2A8B3A186791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{496AA257-AC0A-4F9B-ACFF-2A8B3A186791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

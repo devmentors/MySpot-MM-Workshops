@@ -1,7 +1,6 @@
 using Microsoft.Extensions.Logging;
 using MySpot.Modules.Notifications.Api.DAL;
 using MySpot.Modules.Notifications.Api.Entities;
-using MySpot.Modules.Users.Shared;
 using MySpot.Shared.Abstractions.Events;
 
 namespace MySpot.Modules.Notifications.Api.Events.External.Handlers;

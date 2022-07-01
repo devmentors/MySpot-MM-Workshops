@@ -6,7 +6,6 @@ using MySpot.Modules.Users.Core.Entities;
 using MySpot.Modules.Users.Core.Events;
 using MySpot.Modules.Users.Core.Exceptions;
 using MySpot.Modules.Users.Core.Repositories;
-using MySpot.Modules.Users.Shared;
 using MySpot.Shared.Abstractions.Commands;
 using MySpot.Shared.Abstractions.Events;
 using MySpot.Shared.Abstractions.Messaging;
@@ -25,18 +24,18 @@ internal sealed class SignUpHandler : ICommandHandler<SignUp>
     private readonly IRoleRepository _roleRepository;
     private readonly IPasswordManager _passwordManager;
     private readonly IClock _clock;
-    private readonly IEventDispatcher _eventDispatcher;
+    private readonly IMessageBroker _messageBroker;
     private readonly ILogger<SignUpHandler> _logger;
 
     public SignUpHandler(IUserRepository userRepository, IRoleRepository roleRepository,
-        IPasswordManager passwordManager, IClock clock, IEventDispatcher eventDispatcher,
+        IPasswordManager passwordManager, IClock clock, IMessageBroker messageBroker,
         ILogger<SignUpHandler> logger)
     {
         _userRepository = userRepository;
         _roleRepository = roleRepository;
         _passwordManager = passwordManager;
         _clock = clock;
-        _eventDispatcher = eventDispatcher;
+        _messageBroker = messageBroker;
         _logger = logger;
     }
 
@@ -82,7 +81,7 @@ internal sealed class SignUpHandler : ICommandHandler<SignUp>
             CreatedAt = now
         };
         await _userRepository.AddAsync(user);
-        await _eventDispatcher.PublishAsync(new SignedUp(user.Id, email, role.Name, jobTitle), cancellationToken);
+        await _messageBroker.PublishAsync(new SignedUp(user.Id, email, role.Name, jobTitle), cancellationToken);
         _logger.LogInformation($"User with ID: '{user.Id}' has signed up.");
     }
 }
