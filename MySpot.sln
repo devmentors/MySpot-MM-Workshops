@@ -65,6 +65,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notificati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Modules.Notifications.Api", "src\Modules\Notifications\MySpot.Modules.Notifications.Api\MySpot.Modules.Notifications.Api.csproj", "{DE09E957-7D4C-482C-9456-4898E52B688B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySpot.Modules.Users.Shared", "src\Modules\Users\MySpot.Modules.Users.Shared\MySpot.Modules.Users.Shared.csproj", "{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,7 @@ Global
 		{57DC16D5-F957-439C-8051-681936912530} = {1910378F-A6BF-4526-AB97-76BC33140CB2}
 		{18DD3792-F715-4E9C-BBD6-4F7807543437} = {1E27CE56-47D9-4B0C-83B3-71A80DD151A2}
 		{DE09E957-7D4C-482C-9456-4898E52B688B} = {18DD3792-F715-4E9C-BBD6-4F7807543437}
+		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6} = {79D40D8F-0176-4EE8-B958-8F65A351B494}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E6F7C5A1-DA33-4CA4-A8FA-2D75C05B0C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -179,5 +182,9 @@ Global
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE09E957-7D4C-482C-9456-4898E52B688B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF66809C-EA6F-464B-BA6F-7E18D9275AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

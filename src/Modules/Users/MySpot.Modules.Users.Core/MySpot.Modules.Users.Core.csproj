@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\MySpot.Shared.Infrastructure\MySpot.Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\MySpot.Modules.Users.Shared\MySpot.Modules.Users.Shared.csproj" />
     </ItemGroup>
 
 </Project>

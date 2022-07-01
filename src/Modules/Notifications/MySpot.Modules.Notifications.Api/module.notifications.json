@@ -2,7 +2,7 @@
   "notifications": {
     "module": {
       "name": "Notifications",
-      "enabled": false
+      "enabled": true
     }
   }
 }

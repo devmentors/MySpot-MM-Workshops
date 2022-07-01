@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -62,6 +63,7 @@ public static class Extensions
     private static void AddModuleRegistry(this IServiceCollection services, IEnumerable<Assembly> assemblies)
     {
         var registry = new ModuleRegistry();
+        
         var types = assemblies.SelectMany(x => x.GetTypes()).ToArray();
             
         var commandTypes = types
