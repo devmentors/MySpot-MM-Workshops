@@ -2,7 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using MySpot.Modules.ParkingSpots.Core.Clients;
 using MySpot.Modules.ParkingSpots.Core.DAL;
 using MySpot.Modules.ParkingSpots.Core.Entities;
+using MySpot.Modules.ParkingSpots.Core.Events;
 using MySpot.Modules.ParkingSpots.Core.Exceptions;
+using MySpot.Shared.Abstractions.Messaging;
 
 namespace MySpot.Modules.ParkingSpots.Core.Services;
 
@@ -12,11 +14,12 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
     private readonly ParkingSpotsDbContext _context;
 
     private readonly IAvailabilityClient _client;
-
-    public ParkingSpotsService(ParkingSpotsDbContext context, IAvailabilityClient client)
+    private readonly IMessageBroker _broker;
+    public ParkingSpotsService(ParkingSpotsDbContext context, IAvailabilityClient client, IMessageBroker broker)
     {
         _context = context;
         _client = client;
+        _broker = broker;
         _parkingSpots = context.ParkingSpots;
     }
 
@@ -28,7 +31,9 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
         await _parkingSpots.AddAsync(parkingSpot);
         await _context.SaveChangesAsync();
 
-        await _client.AddResource(parkingSpot.Id, 2, new[] {"parking_spot"});
+       // await _client.AddResource(parkingSpot.Id, 2, new[] {"parking_spot"});
+
+        await _broker.PublishAsync(new ParkingSpotCreated(parkingSpot.Id));
     }
 
     public async Task UpdateAsync(ParkingSpot parkingSpot)
@@ -47,6 +52,7 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
 
     public async Task DeleteAsync(Guid parkingSpotId)
     {
+   
         var parkingSpot = await _parkingSpots.SingleOrDefaultAsync(x => x.Id == parkingSpotId);
         if (parkingSpot is null)
         {
@@ -55,5 +61,7 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
 
         _parkingSpots.Remove(parkingSpot);
         await _context.SaveChangesAsync();
+        await _broker.PublishAsync(new ParkingSpotDeleted(parkingSpot.Id));
+
     }
 }
