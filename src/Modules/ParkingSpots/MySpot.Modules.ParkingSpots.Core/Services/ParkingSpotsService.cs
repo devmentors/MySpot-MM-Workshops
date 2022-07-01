@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MySpot.Modules.ParkingSpots.Core.Clients;
 using MySpot.Modules.ParkingSpots.Core.DAL;
 using MySpot.Modules.ParkingSpots.Core.Entities;
 using MySpot.Modules.ParkingSpots.Core.Exceptions;
@@ -10,9 +11,12 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
     private readonly DbSet<ParkingSpot> _parkingSpots;
     private readonly ParkingSpotsDbContext _context;
 
-    public ParkingSpotsService(ParkingSpotsDbContext context)
+    private readonly IAvailabilityClient _client;
+
+    public ParkingSpotsService(ParkingSpotsDbContext context, IAvailabilityClient client)
     {
         _context = context;
+        _client = client;
         _parkingSpots = context.ParkingSpots;
     }
 
@@ -23,6 +27,8 @@ internal sealed class ParkingSpotsService : IParkingSpotsService
     {
         await _parkingSpots.AddAsync(parkingSpot);
         await _context.SaveChangesAsync();
+
+        await _client.AddResource(parkingSpot.Id, 2, new[] {"parking_spot"});
     }
 
     public async Task UpdateAsync(ParkingSpot parkingSpot)

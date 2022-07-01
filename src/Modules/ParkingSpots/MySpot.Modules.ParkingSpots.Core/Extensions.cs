@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MySpot.Modules.ParkingSpots.Core.Clients;
 using MySpot.Modules.ParkingSpots.Core.DAL;
 using MySpot.Modules.ParkingSpots.Core.Services;
 using MySpot.Shared.Infrastructure;
@@ -18,6 +19,7 @@ internal static class Extensions
     {
         return services
             .AddScoped<IParkingSpotsService, ParkingSpotsService>()
+            .AddTransient<IAvailabilityClient, AvailabilityClient>()
             .AddMsSqlServer<ParkingSpotsDbContext>(configuration)
             .AddInitializer<ParkingSpotsInitializer>()
             .AddUnitOfWork<ParkingSpotsUnitOfWork>();

@@ -5,6 +5,7 @@ namespace MySpot.Modules.Reservations.Application.Commands.Handlers;
 
 internal sealed class MakeReservationHandler : ICommandHandler<MakeReservation>
 {
+    
     public async Task HandleAsync(MakeReservation command, CancellationToken cancellationToken = default)
     {
         var (userId, parkingSpotId, capacity, licensePlate, date, note) = command;
